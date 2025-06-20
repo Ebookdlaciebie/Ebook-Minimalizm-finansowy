@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalizm Finansowy: Klucz do Życia Bez Finansowych Zmartwień</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Sage & Neutral Harmony -->
+    <!-- Application Structure Plan: Zmieniono strukturę na stronę sprzedażową ebooka. Skupiono się na przedstawieniu problemów, które ebook rozwiązuje, oraz korzyści z jego zakupu. Sekcje: Wprowadzenie (Hero - główny nagłówek i zachęta), Problemy (Diagnoza - streszczenie wyzwań finansowych), Rozwiązania (Strategie, Wolność, Inwestycje, Psychologia - zapowiedzi treści ebooka), oraz wyraźne Wezwanie do Działania (CTA - sekcja z przyciskiem do zakupu). Taka architektura ma na celu szybkie przekonanie użytkownika do wartości produktu i skierowanie go do zakupu, minimalizując szczegółowe interakcje, a maksymalizując sprzedażowy przekaz. -->
+    <!-- Visualization & Content Choices: 
+        - Wprowadzenie: Cel: zachęta, obietnica. Metoda: Duży nagłówek, krótki opis, CTA. Interakcja: Przycisk "Kup Ebooka!". Uzasadnienie: Natychmiastowe przedstawienie wartości i celu strony.
+        - Problemy Finansowe: Cel: identyfikacja problemu. Metoda: Krótki tekst opisujący typowe problemy. Interakcja: Brak. Uzasadnienie: Użytkownik łatwo identyfikuje się z przedstawionymi wyzwaniami.
+        - Sekcja "Czy wiesz, że...": Cel: wywołanie "czynnika szoku". Metoda: Pogrubiony tekst. Interakcja: Brak, statyczne dla maksymalnego wpływu. Uzasadnienie: Mocno obrazuje, jak małe wydatki kumulują się.
+        - Zapowiedzi Rozdziałów (Strategie, Wolność, Inwestycje, Psychologia): Cel: zaciekawienie, pokazanie zawartości. Metoda: Krótkie opisy korzyści z każdego obszaru ebooka. Interakcja: Brak. Uzasadnienie: Sugeruje bogactwo treści bez ich ujawniania.
+        - Wezwanie do Działania: Cel: konwersja. Metoda: Wyraźny, duży przycisk z placeholderem na link do zakupu. Interakcja: Kliknięcie przeniesie do sklepu. Uzasadnienie: Kluczowy element strony sprzedażowej.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F0E6;
+            color: #4D4C4A;
+        }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #8C9D82;
+        }
+        .btn-primary {
+            background-color: #8C9D82;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #7a8a70;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .accent-color { color: #8C9D82; }
+        .bg-accent-light { background-color: #e8ede5; }
+        .border-accent { border-color: #8C9D82; }
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold accent-color">Minimalizm Finansowy</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#ebook-info" class="nav-link">O Ebooku</a>
+                <a href="#przedsmak" class="nav-link">Przedsmak</a>
+                <a href="#kup-teraz" class="nav-link btn-primary py-2 px-4 rounded-full">Kup Teraz</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#ebook-info" class="block py-2 px-6 text-sm hover:bg-gray-200">O Ebooku</a>
+            <a href="#przedsmak" class="block py-2 px-6 text-sm hover:bg-gray-200">Przedsmak</a>
+            <a href="#kup-teraz" class="block py-2 px-6 text-sm hover:bg-gray-200">Kup Teraz</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="start" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Minimalizm Finansowy: Klucz do Życia Bez Finansowych Zmartwień</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Czy marzysz o życiu z mniejszą ilością zmartwień o pieniądze? Odkryj, jak świadome zarządzanie finansami może przynieść Ci wolność, spokój i kontrolę nad własnym życiem. Ten ebook to Twój osobisty przewodnik.</p>
+                <a href="https://buy.stripe.com/8x23cvfRQbmE4hH5Q36g800" class="btn-primary py-3 px-8 rounded-full font-bold text-lg">Kup Ebooka Już Dziś!</a>
+            </div>
+        </section>
+
+        <section id="ebook-info" class="py-16 bg-accent-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Czego nauczysz się z ebooka "Minimalizm Finansowy"?</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg">Ten kompleksowy przewodnik odpowie na Twoje najważniejsze pytania i rozwiąże codzienne problemy finansowe, inspirując Cię do zmiany.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <h3 class="text-2xl font-bold mb-3 accent-color">Diagnoza i Budżet</h3>
+                        <p class="text-lg">Dowiedz się, gdzie naprawdę uciekają Twoje pieniądze i jak świadomie planować budżet, abyś miał pełną kontrolę nad swoimi finansami.</p>
+                        <p class="mt-4 text-center text-sm text-gray-600">Przykład: Codzienna kawa za 20 zł to aż <span class="font-bold accent-color">7300 zł</span> rocznie! Zobacz, jak małe zmiany dają duże efekty.</p>
+                    </div>
+                    <div class="card text-center">
+                        <h3 class="text-2xl font-bold mb-3 accent-color">Praktyczne Strategie Ograniczania Wydatków</h3>
+                        <p class="text-lg">Poznaj sprawdzone metody na unikanie impulsywnych zakupów i codzienne oszczędzanie bez poczucia rezygnacji. Naucz się kupować mniej, ale lepiej.</p>
+                    </div>
+                    <div class="card text-center">
+                        <h3 class="text-2xl font-bold mb-3 accent-color">Droga do Wolności od Długów</h3>
+                        <p class="text-lg">Skuteczne strategie spłaty zadłużenia (metoda kuli śnieżnej i lawinowa) oraz budowania solidnego funduszu awaryjnego – Twojej finansowej siatki bezpieczeństwa.</p>
+                    </div>
+                    <div class="card text-center">
+                        <h3 class="text-2xl font-bold mb-3 accent-color">Minimalistyczne Inwestowanie</h3>
+                        <p class="text-lg">Odkryj prostotę i potęgę procentu składanego. Zobacz, jak, nawet z niewielkim budżetem, możesz sprawić, by Twoje pieniądze pracowały dla Ciebie.</p>
+                    </div>
+                    <div class="card text-center">
+                        <h3 class="text-2xl font-bold mb-3 accent-color">Psychologia Zmiany Myślenia</h3>
+                        <p class="text-lg">Zrozum mechanizmy, które napędzają konsumpcjonizm. Naucz się budować pozytywne nawyki finansowe i radzić sobie z sentymentalnym przywiązaniem do rzeczy.</p>
+                    </div>
+                    <div class="card text-center">
+                        <h3 class="text-2xl font-bold mb-3 accent-color">Życie Pełne Spokoju i Wolności</h3>
+                        <p class="text-lg">Zainspiruj się prawdziwymi historiami sukcesu i zobacz, jak minimalizm finansowy prowadzi do życia zgodnego z wartościami, pełnego świadomych wyborów i prawdziwej wolności.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="przedsmak" class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Przedsmak ebooka: Zobacz, co zyskasz!</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg">Poniżej przedstawiamy tylko niektóre z interaktywnych narzędzi i analiz, które czekają na Ciebie w pełnym ebooku. Odkryj, jak łatwo możesz zmienić swoje finanse!</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4 text-center">Twój budżet 50/30/20</h3>
+                        <p class="mb-4 text-center">Wpisz swój miesięczny dochód i zobacz, jak w prosty sposób możesz podzielić swoje wydatki na potrzeby, zachcianki i cele finansowe. Pełne narzędzia i strategie w ebooku!</p>
+                        <div class="mb-6">
+                            <label for="income" class="block text-sm font-medium mb-2">Twój miesięczny dochód netto (PLN):</label>
+                            <input type="number" id="income" placeholder="np. 5000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:border-accent focus:outline-none">
+                        </div>
+                        <div class="space-y-4 text-lg">
+                            <div class="flex justify-between items-center p-3 bg-blue-100 rounded-lg">
+                                <span class="font-semibold">Potrzeby (50%):</span>
+                                <span id="needs-value" class="font-bold">0 PLN</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-purple-100 rounded-lg">
+                                <span class="font-semibold">Zachcianki (30%):</span>
+                                <span id="wants-value" class="font-bold">0 PLN</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-green-100 rounded-lg">
+                                <span class="font-semibold">Cele Finansowe (20%):</span>
+                                <span id="goals-value" class="font-bold">0 PLN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="chart-container">
+                            <canvas id="budgetChart"></canvas>
+                        </div>
+                        <div class="mt-8 text-center bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-xl font-bold mb-2">Czy wiesz, że...</h4>
+                            <p class="text-lg">Codzienna kawa na mieście za 20 zł to <span class="font-bold accent-color">7300 zł</span> rocznie. Po 10 latach ta kwota rośnie do <span class="font-bold accent-color text-2xl">73 000 zł!</span> Odkryj w ebooku, jak przekuć takie wydatki w oszczędności i inwestycje.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4">Walka z Długami: Wybierz swoją strategię!</h3>
+                        <p class="mb-4">Ebook szczegółowo opisuje i pomaga wybrać najlepszą metodę spłaty długów. Tutaj zobacz tylko wstęp!</p>
+                         <div id="debt-tabs" class="mb-4 flex border-b border-gray-200">
+                            <button data-tab="snowball" class="tab-button flex-1 py-2 px-4 text-center font-semibold border-b-2 border-accent text-accent">Metoda Kuli Śnieżnej</button>
+                            <button data-tab="avalanche" class="tab-button flex-1 py-2 px-4 text-center font-semibold text-gray-500">Metoda Lawinowa</button>
+                        </div>
+                        <div id="snowball" class="tab-content">
+                            <h4 class="font-bold">Skupienie na motywacji</h4>
+                            <p>Spłacaj długi od najmniejszego do największego, aby zyskać psychologiczny "zastrzyk energii" do dalszej walki. Pełne instrukcje w ebooku!</p>
+                        </div>
+                        <div id="avalanche" class="tab-content hidden">
+                             <h4 class="font-bold">Skupienie na matematyce</h4>
+                             <p>Spłacaj długi od najwyżej oprocentowanego, aby zminimalizować łączną kwotę odsetek. Dowiedz się, która jest dla Ciebie najlepsza w ebooku!</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4">Potęga Inwestowania: Zobacz, jak pieniądze rosną!</h3>
+                        <p class="mb-6">Przesuń suwak i przekonaj się, jak niewielkie, regularne inwestycje mogą urosnąć do ogromnych kwot. Pełne strategie inwestycyjne znajdziesz w ebooku!</p>
+                        <div>
+                            <label for="investment-years" class="block font-medium mb-2">Liczba lat inwestowania: <span id="years-label" class="font-bold accent-color">20 lat</span></label>
+                            <input type="range" id="investment-years" min="1" max="40" value="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <p class="mt-4 text-center text-sm text-gray-600">Założenia w demo: 500 zł miesięcznie, średnia roczna stopa zwrotu 7%.</p>
+                        <div class="chart-container" style="height: 250px;">
+                            <canvas id="investmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-xl max-w-2xl mx-auto mb-8">To tylko mała część tego, co znajdziesz w ebooku "Minimalizm Finansowy". Gotowy na pełną transformację swoich finansów?</p>
+                    <a href="https://buy.stripe.com/8x23cvfRQbmE4hH5Q36g800" class="btn-primary py-3 px-8 rounded-full font-bold text-lg">Zdobądź Pełen Ebook Teraz!</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="kup-teraz" class="py-16 md:py-24 text-center bg-accent-light">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Gotów na finansową rewolucję?</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10">Zrób pierwszy krok ku życiu bez zbędnego stresu finansowego. "Minimalizm Finansowy: Klucz do Życia Bez Finansowych Zmartwień" to inwestycja, która zwróci Ci się wielokrotnie!</p>
+                <a href="https://buy.stripe.com/8x23cvfRQbmE4hH5Q36g800" class="btn-primary py-4 px-12 rounded-full font-bold text-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">Kup Ebooka Teraz!</a>
+                <p class="mt-8 text-sm text-gray-600">Po kliknięciu przycisku zostaniesz przekierowany na stronę bezpiecznego zakupu.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>Twoja podróż do wolności finansowej dopiero się zaczyna.</p>
+            <p class="text-sm text-gray-400 mt-2">Minimalizm Finansowy - Ebook © 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const incomeInput = document.getElementById('income');
+            const needsValue = document.getElementById('needs-value');
+            const wantsValue = document.getElementById('wants-value');
+            const goalsValue = document.getElementById('goals-value');
+
+            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+            let budgetChart = new Chart(budgetCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Potrzeby (50%)', 'Zachcianki (30%)', 'Cele (20%)'],
+                    datasets: [{
+                        data: [50, 30, 20],
+                        backgroundColor: ['#60A5FA', '#A78BFA', '#34D399'],
+                        borderColor: '#F0F0E6',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: 'Inter'
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            function updateBudget() {
+                const income = parseFloat(incomeInput.value) || 0;
+                const needs = income * 0.5;
+                const wants = income * 0.3;
+                const goals = income * 0.2;
+
+                needsValue.textContent = `${needs.toFixed(2)} PLN`;
+                wantsValue.textContent = `${wants.toFixed(2)} PLN`;
+                goalsValue.textContent = `${goals.toFixed(2)} PLN`;
+                
+                if (income > 0) {
+                   budgetChart.data.datasets[0].data = [needs, wants, goals];
+                } else {
+                   budgetChart.data.datasets[0].data = [50, 30, 20];
+                }
+                budgetChart.update();
+            }
+
+            incomeInput.addEventListener('input', updateBudget);
+            updateBudget();
+
+            const debtTabs = document.querySelectorAll('.tab-button');
+            const debtContents = document.querySelectorAll('.tab-content');
+            debtTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    debtTabs.forEach(t => {
+                        t.classList.remove('border-accent', 'text-accent');
+                        t.classList.add('text-gray-500');
+                    });
+                    tab.classList.add('border-accent', 'text-accent');
+                    tab.classList.remove('text-gray-500');
+
+                    debtContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    document.getElementById(tab.dataset.tab).classList.remove('hidden');
+                });
+            });
+
+            const yearsSlider = document.getElementById('investment-years');
+            const yearsLabel = document.getElementById('years-label');
+            
+            const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+            let investmentChart;
+            
+            function calculateCompoundInterest(monthlyInvestment, years, annualRate) {
+                let balance = 0;
+                const data = [];
+                const labels = [];
+                const monthlyRate = annualRate / 12;
+                const totalMonths = years * 12;
+                
+                for(let i=0; i<=totalMonths; i++){
+                    if (i % 12 === 0 || i === totalMonths) {
+                         data.push(balance.toFixed(0));
+                         labels.push(`Rok ${Math.floor(i/12)}`);
+                    }
+                    balance = (balance + monthlyInvestment) * (1 + monthlyRate);
+                }
+                return {data, labels};
+            }
+            
+            function createOrUpdateInvestmentChart() {
+                 const years = parseInt(yearsSlider.value);
+                 yearsLabel.textContent = `${years} lat`;
+
+                 const {data, labels} = calculateCompoundInterest(500, years, 0.07);
+
+                 if(investmentChart) {
+                     investmentChart.destroy();
+                 }
+
+                 investmentChart = new Chart(investmentCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Wzrost kapitału (PLN)',
+                            data: data,
+                            borderColor: '#8C9D82',
+                            backgroundColor: 'rgba(140, 157, 130, 0.1)',
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `Wartość: ${context.formattedValue} PLN`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value / 1000 + 'k';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            yearsSlider.addEventListener('input', createOrUpdateInvestmentChart);
+            createOrUpdateInvestmentChart();
+        });
+    </script>
+
+</body>
+</html>
